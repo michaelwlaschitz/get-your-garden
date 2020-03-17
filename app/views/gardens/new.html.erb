@@ -1,14 +1,35 @@
-<h1>Create your Garden here to be booked</h1>
-<%= simple_form_for @garden do |f| %>
+<div class="container-form">
+  <!-- Form -->
+  <div class="form-grid">
+    <div class="whitespace">
+    </div>
 
-<%= f.input :title %>
-<%= f.input :description %>
-<%= f.input :location %>
-<%= f.input :price %>
-<%= f.input :capacity %>
-<%= f.input :barbecue %>
-<%= f.input :pool %>
-<%= f.input :green_area %>
-<%= f.input :photos, as: :file, input_html: { multiple: true } %>
-<%= f.submit "Create new Garden", class: "btn btn-success"%>
-<% end %>
+    <div class="form">
+      <h1 class="fat-green">Create your Garden</h1>
+      <%= simple_form_for @garden do |f| %>
+      <%= f.input :title, placeholder: 'Title', label:false, class: 'form-control' %>
+      <%= f.input :description, placeholder: 'Description', label:false,class: 'form-control' %>
+      <%= f.input :location, placeholder: 'Location', label:false,class: 'form-control' %>
+      <%= f.input :price, placeholder: 'Price', label:false,class: 'form-control'%>
+      <%= f.input :capacity, placeholder: 'Capacity', label:false, class: 'form-control' %>
+      <%= f.input :barbecue, class: 'form-control' %>
+      <%= f.input :pool, class: 'form-control' %>
+      <%= f.input :green_area, class: 'form-control' %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true }, class: 'form-control' %>
+      <%= f.submit "Create new Garden", class: "btn btn-success w-100"%>
+      <% end %>
+    </div>
+
+    <div class="whitespace">
+    </div>
+
+  </div>
+
+  <div>
+    <%= image_tag "girl-in-garden.jpg", class: "form-image"%>
+  </div>
+</div>
+
+
+
+

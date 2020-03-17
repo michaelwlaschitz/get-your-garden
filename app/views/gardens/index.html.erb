@@ -1,24 +1,37 @@
-<h1>Gardens#index</h1>
 <div class = "container main-container">
-    <div class = "card-container">
-      <div class = "row">
-          <div class = "garden-card">
-            <div class="garden-img">
-              <img src="https://www.zawadzkilandscaping.com/wp-content/uploads/2014/09/Pool-in-Garden-Design.jpg" alt="#" width= "300" height="200">
-            </div>
-            <div class="garden-info">This is the info</div>
+  <div class = "card-container">
+    <div class="row mx-4 my-3">
+      <h2>We found 100 gardens</h2>
+    </div>
+    <% @gardens.each do |garden| %>
+    <div class = "row mx-3 py-4 border-top">
+      <div class = "garden-card">
+        <div class="garden-img">
+          <%= cl_image_tag garden.photos.first.key, height: 200, width: 300, crop: :fill %>
+        </div>
+        <div class="garden-info p-2">
+          <div class="garden-title">
+            <p><%= garden.title %></p>
+          </div>
+          <div class="garden-amenities">
+            <% if garden.barbecue == true %>
+              <i class="fas fa-hamburger"></i> Grill
+              <br>
+            <% end %>
+            <% if garden.green_area == true %>
+              <i class="fas fa-seedling"></i> Green Area
+              <br>
+            <% end %>
+            <% if garden.pool == true %>
+              <i class="fas fa-swimming-pool"></i> Pool
+            <% end %>
           </div>
         </div>
-        <div class="row">
-          <div class = "garden-card">
-            <div class="garden-img">
-              <img src="https://thumbnails.trvl-media.com/1TcA3xfmZOvFrWHFoh1SzVyqq00=/773x530/smart/filters:quality(60)/images.trvl-media.com/hotels/18000000/17270000/17265000/17264911/87411aaf_z.jpg" alt="#" width= "300" height="200">
-            </div>
-            <div class="garden-info">This is the info</div>
-          </div>
       </div>
     </div>
+    <% end %>
+  </div>
 
-    <div class = "map-container">
-    </div>
+  <div class = "map-container py-1">
+  </div>
 </div>
