@@ -1,27 +1,35 @@
 // Import page-specific CSS files here.
 @import "home";
 
+body {
+  background-color: white;
+  font-family:'Baloo Chettan 2', cursive;
+}
+
+h2 {
+  font-size: 25px;
+  color: #222222;
+}
+
 .main-container {
   margin: 0px;
-  background-color: yellow;
   display: flex;
-  height: 500px;
   max-width: 100vw;
   justify-content: space-between;
   padding: 0px;
 }
 
 .map-container {
-  background-image: url("https://equalentry.com/wp-content/uploads/2018/05/4-1.png");
+  background-image: url("fakemap.png");
   width: 800px;
   height: 100vh;
   position: sticky;
   top: 0;
+  background-size: auto 100%;
 }
 
 .card-container {
   width: 1200px;
-  background-color: red;
   flex-grow:1;
 }
 
@@ -32,8 +40,15 @@
 .garden-img {
   width: 300px;
   height: 200px;
+  img {
+    border-radius: 4px;
+  }
 }
 
-.garden-info {
+.garden-title p {
+  font-size: 20px;
+}
 
+.garden-amenities {
+  color: #C0C0C0;
 }
