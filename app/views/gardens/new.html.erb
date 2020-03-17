@@ -1,2 +1,14 @@
-<h1>Gardens#new</h1>
-<p>Find me in app/views/gardens/new.html.erb</p>
+<h1>Create your Garden here to be booked</h1>
+<%= simple_form_for @garden do |f| %>
+
+<%= f.input :title %>
+<%= f.input :description %>
+<%= f.input :location %>
+<%= f.input :price %>
+<%= f.input :capacity %>
+<%= f.input :barbecue %>
+<%= f.input :pool %>
+<%= f.input :green_area %>
+<%= f.input :photos, as: :file, input_html: { multiple: true } %>
+<%= f.submit "Create new Garden", class: "btn btn-success"%>
+<% end %>
