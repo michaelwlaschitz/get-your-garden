@@ -11,3 +11,12 @@ h2 {
   color: $garden-green;
   font-weight: bold;
 }
+
+a {
+  text-decoration: none;
+  margin: 0px;
+}
+
+a:hover {
+  text-decoration: none;
+}
