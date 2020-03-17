@@ -1,0 +1,14 @@
+.container-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  flex-grow: 1;
+}
+
+.whitespace {
+  background-color: $light-gray;
+}
