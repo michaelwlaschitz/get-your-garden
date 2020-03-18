@@ -6,21 +6,19 @@
   padding: 0px;
 }
 
-#map {
-  width: 900px;
-  height: 100vh;
-  position: sticky;
-  top: 0;
-  background-size: auto 100%;
-}
-
 .card-container {
   width: 1200px;
   flex-grow:1;
 }
 
+.card-container h2 {
+  margin-bottom: 0;
+}
+
 .garden-card {
   display: flex;
+  justify-content: center;
+  align-items: top;
 }
 
 .garden-img {
@@ -28,6 +26,7 @@
   height: 200px;
   img {
     border-radius: 4px;
+    height: 200px
   }
 }
 
@@ -36,6 +35,31 @@
   color: black;
 }
 
+.garten-title {
+  text-decoration: none;
+}
+
 .garden-amenities {
   color: #5f6368;
 }
+
+.garden-description {
+  margin-top: 8px;
+}
+
+.garden-price {
+  font-size: 24px;
+}
+
+.garden-link p {
+  margin-bottom: 0;
+}
+
+#map {
+  width: 900px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  background-size: auto 100%;
+}
+

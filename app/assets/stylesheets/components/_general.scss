@@ -10,6 +10,11 @@ h2 {
 .fat-green {
   color: $garden-green;
   font-weight: bold;
+  transition: opacity 0.2s;
+
+  &:hover {
+    color: $dark-green;
+  }
 }
 
 a {
@@ -21,4 +26,8 @@ a:hover {
   text-decoration: none;
 }
 
+
+.smaller-text {
+  font-size: 16px;
+}
 

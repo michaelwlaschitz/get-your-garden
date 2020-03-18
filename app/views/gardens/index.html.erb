@@ -1,9 +1,10 @@
 <div class = "container main-container">
   <div class = "card-container">
     <div class="row mx-4 my-3">
-      <h2>We found 100 gardens</h2>
+      <h2>We found <span class="fat-green"> <%= @gardens.count %> </span> gardens</h2>
     </div>
     <% @gardens.each do |garden| %>
+
     <div class = "row mx-3 py-4 border-top">
       <div class = "garden-card">
         <div class="garden-img">
@@ -13,21 +14,35 @@
         </div>
         <div class="garden-info p-2">
           <div class="garden-title">
-            <p> <%= link_to garden.title, garden_path(garden) %></p>
+            <p> <%= link_to garden.title, garden_path(garden), class: "fat-green"%></p>
           </div>
+
           <div class="garden-amenities">
-            <% if garden.barbecue == true %>
-              <i class="fas fa-hamburger"></i> Grill
-              <br>
-            <% end %>
-            <% if garden.green_area == true %>
-              <i class="fas fa-seedling"></i> Green Area
-              <br>
-            <% end %>
-            <% if garden.pool == true %>
-              <i class="fas fa-swimming-pool"></i> Pool
-            <% end %>
-          </div>
+            <ul class="list-inline">
+              <% if garden.barbecue == true %>
+              <li class="list-inline-item"> <i class="fas fa-hamburger"></i> Grill </li>
+              <% end %>
+              <% if garden.green_area == true %>
+              <li class="list-inline-item"> <i class="fas fa-seedling"></i> Green Area </li>
+              <% end %>
+              <% if garden.pool == true %>
+              <li class="list-inline-item"> <i class="fas fa-swimming-pool"></i> Pool </li>
+              <% end %>
+            </ul>
+             </div>
+
+
+            <div class="garden-description">
+              <p> <%= garden.description %></p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+            <div class="garden-price">
+              <h2> <%= garden.price %> $ <span class="smaller-text">/ hour </span> </h2>
+            </div>
+            <div class="garden-link">
+              <p><i class="fas fa-star"></i> 5</p>
+            </div>
+            </div>
         </div>
       </div>
     </div>
