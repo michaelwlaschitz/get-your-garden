@@ -1,0 +1,45 @@
+@import "index";
+
+.container-first {
+  background-color: yellow;
+  padding: 0px 100px;
+  margin: 10px 60px;
+}
+
+.show-image {
+  border-radius: 10px;
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  padding-bottom: 20px;
+}
+
+.garden-info {
+  // justify-content: space-between;
+  width: 70%;
+}
+
+.garden-amenities {
+justify-content: space-between;
+}
+
+.btn-outline-success {
+  background-color: green;
+}
+
+.garden-infos {
+  display: flex;
+}
+.garden-booking {
+  width: 30%;
+}
+
+.show-location {
+  color: #5f6368;
+}
+
+.garden-amenities {
+  color: #5f6368;
+}
+
