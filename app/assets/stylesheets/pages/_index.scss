@@ -30,7 +30,7 @@
 .garden-card {
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: top;
 }
 
 .garden-img {
@@ -60,6 +60,9 @@
 }
 
 .garden-price {
-  margin-top: 8px;
   font-size: 24px;
+}
+
+.garden-link p {
+  margin-bottom: 0;
 }
