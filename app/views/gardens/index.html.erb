@@ -7,7 +7,9 @@
     <div class = "row mx-3 py-4 border-top">
       <div class = "garden-card">
         <div class="garden-img">
-          <%= link_to cl_image_tag garden.photos.first.key, height: 200, width: 300, crop: :fill, garden_path(garden) %>
+          <%= link_to garden_path(garden) do %>
+          <%= cl_image_tag garden.photos.first.key, height: 200, width: 300, crop: :fill %>
+          <% end %>
         </div>
         <div class="garden-info p-2">
           <div class="garden-title">
@@ -32,6 +34,7 @@
     <% end %>
   </div>
 
-  <div class = "map-container py-1">
+  <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+
 </div>
