@@ -1,4 +1,5 @@
-  <div class = "container">
+<div class = "container">
+  <div class="d-flex justify-content-between mt-4">
 
     <div class="card-title">
       <h4><%=@garden.title%></h4>
@@ -7,35 +8,39 @@
       </div>
     </div>
 
-    <div class="garden-photo">
-      <%= cl_image_tag @garden.photos.first.key, class: "show-image" %>
+    <div>
+      <%= link_to "Back to Gardens", gardens_path, class: "backlink"%>
     </div>
-
-    <div class="garden-infos">
-      <div class="garden-info">
-        <div>
-          <h2><%=@garden.description%></h2>
-            <ul class="list-inline">
-               <li class="list-inline-item"> <i class="fas fa-user-friends"></i> <%=@garden.capacity%> people</li>
-              <% if @garden.barbecue == true %>
-              <li class="list-inline-item"> <i class="fas fa-hamburger"></i> Grill </li>
-              <% end %>
-              <% if @garden.green_area == true %>
-              <li class="list-inline-item"> <i class="fas fa-seedling"></i> Green Area </li>
-              <% end %>
-              <% if @garden.pool == true %>
-              <li class="list-inline-item"> <i class="fas fa-swimming-pool"></i> Pool </li>
-              <% end %>
-            </ul>
-          </li>
-        </div>
-      </div>
-      <div class="garden-booking">
-        <h2><b><%=@garden.price%>$/hour</b></h2>
-        <button type="button" class="btn w-100">Book</button>
-      </div>
-    </div>
-
 
   </div>
 
+  <div class="garden-photo">
+    <%= cl_image_tag @garden.photos.first.key, class: "show-image" %>
+  </div>
+
+  <div class="garden-infos">
+    <div class="garden-info">
+      <div>
+        <h2><%=@garden.description%></h2>
+        <ul class="list-inline show-icons">
+         <li class="list-inline-item"> <i class="fas fa-user-friends"></i> <%=@garden.capacity%> people</li>
+         <% if @garden.barbecue == true %>
+         <li class="list-inline-item"> <i class="fas fa-hamburger"></i> Grill </li>
+         <% end %>
+         <% if @garden.green_area == true %>
+         <li class="list-inline-item"> <i class="fas fa-seedling"></i> Green Area </li>
+         <% end %>
+         <% if @garden.pool == true %>
+         <li class="list-inline-item"> <i class="fas fa-swimming-pool"></i> Pool </li>
+         <% end %>
+       </ul>
+     </li>
+   </div>
+ </div>
+ <div class="garden-booking">
+  <h2><b><%=@garden.price%>$/hour</b></h2>
+  <button type="button" class="btn btn-success w-100">Book</button>
+</div>
+</div>
+
+</div>
