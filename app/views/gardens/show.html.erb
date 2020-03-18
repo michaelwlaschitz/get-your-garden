@@ -1,2 +1,39 @@
-<h1>Page coming soon! </h1>
+  <div class = "container">
+
+    <div class="card-title">
+      <h2><%=@garden.title%></h2>
+      <%=@garden.location%>
+    </div>
+
+    <div class="garden-photo">
+      <%= cl_image_tag @garden.photos.first.key, class: "show-image" %>
+    </div>
+
+    <div class="garden-infos">
+      <div class="garden-info">
+        <div>
+          <h4><%=@garden.description%></h4>
+          <p>Capacity: <%=@garden.capacity%> people
+            <ul class="list-inline">
+              <% if @garden.barbecue == true %>
+              <li class="list-inline-item"> <i class="fas fa-hamburger"></i> Grill </li>
+              <% end %>
+              <% if @garden.green_area == true %>
+              <li class="list-inline-item"> <i class="fas fa-seedling"></i> Green Area </li>
+              <% end %>
+              <% if @garden.pool == true %>
+              <li class="list-inline-item"> <i class="fas fa-swimming-pool"></i> Pool </li>
+              <% end %>
+            </ul>
+          </p>
+        </div>
+      </div>
+      <div class="garden-booking">
+        <h2><b><%=@garden.price%>$/hour</b></h2>
+        <button type="button" class="btn btn-outline-success w-100">Book</button>
+      </div>
+    </div>
+
+
+  </div>
 
