@@ -6,8 +6,13 @@
   margin: 10px 60px;
 }
 
+.card-title {
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
 .show-image {
-  border-radius: 10px;
+  border-radius: 24px;
   height: 500px;
   width: 100%;
   object-fit: cover;
@@ -24,18 +29,27 @@
 justify-content: space-between;
 }
 
-.btn-outline-success {
-  background-color: green;
+.btn {
+  background-color: $green;
+  margin-top: 10px;
+  font-size: 20px;
+  border-radius: 10px;
 }
 
 .garden-infos {
   display: flex;
-}
-.garden-booking {
-  width: 30%;
+  margin-top: 10px;
+  margin-bottom: 100px;
 }
 
-.show-location {
+.garden-booking {
+  width: 30%;
+  h2{
+    text-align: center;
+  }
+}
+
+.location {
   color: #5f6368;
 }
 
@@ -43,3 +57,6 @@ justify-content: space-between;
   color: #5f6368;
 }
 
+.list-inline {
+  padding: 20px;
+}
