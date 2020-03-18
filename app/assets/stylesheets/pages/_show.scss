@@ -38,7 +38,6 @@ justify-content: space-between;
 .garden-infos {
   display: flex;
   margin-top: 10px;
-  margin-bottom: 100px;
 }
 
 .garden-booking {
@@ -75,4 +74,12 @@ justify-content: space-between;
 .backlink:hover {
   padding-top: 10px;
   color: gray;
+}
+
+.margin-bottom-big {
+  margin-bottom: 30px;
+}
+
+.container.show {
+  margin-bottom: 100px;
 }
