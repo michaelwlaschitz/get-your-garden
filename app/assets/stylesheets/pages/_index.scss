@@ -23,8 +23,14 @@
   flex-grow:1;
 }
 
+.card-container h2 {
+  margin-bottom: 0;
+}
+
 .garden-card {
   display: flex;
+  justify-content: center;
+  align-items: center
 }
 
 .garden-img {
@@ -32,6 +38,7 @@
   height: 200px;
   img {
     border-radius: 4px;
+    height: 200px
   }
 }
 
@@ -40,6 +47,19 @@
   color: black;
 }
 
+.garten-title {
+  text-decoration: none;
+}
+
 .garden-amenities {
   color: #5f6368;
+}
+
+.garden-description {
+  margin-top: 8px;
+}
+
+.garden-price {
+  margin-top: 8px;
+  font-size: 24px;
 }
