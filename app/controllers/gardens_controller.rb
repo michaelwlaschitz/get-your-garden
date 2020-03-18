@@ -1,23 +1,37 @@
 class GardensController < ApplicationController
+     skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
-    @gardens = Garden.all
+    @gardens = Garden.geocoded
+
+    @markers = @gardens.map do |garden|
+      {
+        lat: garden.latitude,
+        lng: garden.longitude
+      }
+    end
   end
 
   def new
     @garden = Garden.new
   end
 
-  def create
-    @user = current_user
-    @garden = Garden.new(garden_params)
-    @user = @garden.user
-    @garden.save
-   # re_direct to garden_path(@garden)
-  end
-
   def show
     @garden = Garden.find(params[:id])
   end
+
+  def create
+    @user = current_user
+    @garden = Garden.new(garden_params)
+    @garden.user = @user
+    if @garden.save
+      redirect_to garden_path(@garden)
+    else
+      render :new
+    end
+  end
+
+
 
   def edit
   end

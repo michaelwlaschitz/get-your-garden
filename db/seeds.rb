@@ -53,7 +53,7 @@ garden5.photos.attach(io: file5, filename: 'img5.jpg', content_type: 'image/jpg'
 
 garden6 = Garden.create(title:"Japanese garden with barbecue ", description:"Fantastic garden, with flowers, water inspired by Japanese culture. You can enjoy the grill to have a full experience.", location:"31 Alfred St, Sydney NSW 2000, Australia" , price:"60$", capacity:"8", barbecue:"true", pool:"false", green_area:"true", user_id: user4.id)
 
-file6 = URI.open("https://lh3.googleusercontent.com/proxy/EGw3olhBYmZiSvRVa4M0h6sbGpjeE7iOC9MTa0h50QeC9Mw94d3h0jzPJGV1Jy5j10E39NTh_Yf06ro2lAKzvOFhowU4kyWvgMUcWfMFOAWolC3ecI2tTQ")
+file6 = URI.open("https://5.imimg.com/data5/PU/DO/MY-6429052/garden-swimming-pool-rs-5-lakh-to-150000-500x500.jpg")
 garden6.photos.attach(io: file6, filename: 'img6.jpg', content_type: 'image/jpg')
 
 
