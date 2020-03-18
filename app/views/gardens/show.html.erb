@@ -1,8 +1,10 @@
   <div class = "container">
 
     <div class="card-title">
-      <h2><%=@garden.title%></h2>
-      <%=@garden.location%>
+      <h4><%=@garden.title%></h4>
+      <div class="location">
+        <%=@garden.location%>
+      </div>
     </div>
 
     <div class="garden-photo">
@@ -12,9 +14,9 @@
     <div class="garden-infos">
       <div class="garden-info">
         <div>
-          <h4><%=@garden.description%></h4>
-          <p>Capacity: <%=@garden.capacity%> people
+          <h2><%=@garden.description%></h2>
             <ul class="list-inline">
+               <li class="list-inline-item"> <i class="fas fa-user-friends"></i> <%=@garden.capacity%> people</li>
               <% if @garden.barbecue == true %>
               <li class="list-inline-item"> <i class="fas fa-hamburger"></i> Grill </li>
               <% end %>
@@ -25,12 +27,12 @@
               <li class="list-inline-item"> <i class="fas fa-swimming-pool"></i> Pool </li>
               <% end %>
             </ul>
-          </p>
+          </li>
         </div>
       </div>
       <div class="garden-booking">
         <h2><b><%=@garden.price%>$/hour</b></h2>
-        <button type="button" class="btn btn-outline-success w-100">Book</button>
+        <button type="button" class="btn w-100">Book</button>
       </div>
     </div>
 
