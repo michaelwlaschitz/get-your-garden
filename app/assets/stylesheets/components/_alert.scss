@@ -1,4 +1,16 @@
 .alert {
   text-align: center;
+  color: black;
+  margin-bottom: 0;
+}
+
+.alert-info {
+  background-color: #D4EDDA;
+  border: none;
+}
+
+.alert-warning {
+  background-color: #FFF3CD;
+  border: none;
 }
 
