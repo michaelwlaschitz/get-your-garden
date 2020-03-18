@@ -1,11 +1,12 @@
 .btn.btn-success {
-  border-radius: 5px;
+  border-radius: 6px;
   justify-content: center;
-  padding: 10px;
+  padding: 10px 20px;
   color: white;
   background-color: $dark-green;
   border: none;
   opacity: 0.92;
+  margin-bottom: 16px;
 }
 
 .btn.btn-success:hover {
