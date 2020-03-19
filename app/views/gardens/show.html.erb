@@ -10,7 +10,11 @@
   </div>
 
   <div class="garden-photo">
-    <%= cl_image_tag @garden.photos.first.key, class: "show-image" %>
+    <% if @garden.photos.attached? %>
+      <%= cl_image_tag @garden.photos.first.key, class: "show-image" %>
+    <% else %>
+      <%= image_tag "Garden2.jpg", class: "show-image" %>
+    <% end %>
   </div>
 
   <div class="garden-container">

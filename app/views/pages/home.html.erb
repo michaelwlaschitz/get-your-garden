@@ -2,7 +2,12 @@
   <div class='container'>
     <h1>Book<strong> gardens</strong> <strong>online</strong></h1>
     <p>Spend an amazing time with your friends in beautiful gardens around you.</p>
-    <a class='btn btn-success' href='/gardens'>Book a garden</a>
+    <br>
+    <p><strong>Where do you want to chill?</strong></p>
+      <%= form_with url: '/gardens', method: :get, local: true do |f| %>
+      <%= f.text_field :q, id: :q, class: "form-home", placeholder: "Location" %>
+      <%= f.submit "Book your garden now", class: 'btn btn-success btn-search-form' %>
+    <% end %>
   </div>
 </div>
 

@@ -1,7 +1,7 @@
 .btn.btn-success {
   border-radius: 6px;
   justify-content: center;
-  padding: 10px 20px;
+  padding: 5px 15px;
   color: white;
   background-color: $dark-green;
   border: none;
@@ -12,6 +12,11 @@
 .btn.btn-success:hover {
   opacity: 1;
 }
+
+.btn.btn-success.btn-search-form {
+  margin: 0;
+  margin-left: 5px;
+ }
 
 .btn {
   margin-top: 10px;

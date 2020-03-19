@@ -6,17 +6,27 @@
 
     <div class="form">
       <h1 class="fat-green">Create your Garden</h1>
-      <%= simple_form_for @garden do |f| %>
-      <%= f.input :title, placeholder: 'Title', label:false, class: 'form-control' %>
-      <%= f.input :description, placeholder: 'Description', label:false,class: 'form-control' %>
-      <%= f.input :location, placeholder: 'Location', label:false,class: 'form-control' %>
-      <%= f.input :price, placeholder: 'Price', label:false,class: 'form-control'%>
-      <%= f.input :capacity, placeholder: 'Capacity', label:false, class: 'form-control' %>
-      <%= f.input :barbecue, class: 'form-control' %>
-      <%= f.input :pool, class: 'form-control' %>
-      <%= f.input :green_area, class: 'form-control' %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true }, class: 'form-control' %>
-      <%= f.submit "Create new Garden", class: "btn btn-success w-100"%>
+      <!-- app/views/restaurants/_form.html.erb -->
+      <%= simple_form_for(@garden) do |f| %>
+        <% if @garden.errors.any? %>
+          <div class="errors-container">
+            <ul>
+              <% @garden.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <%= f.input :title, placeholder: 'Title', label:false, class: 'form-control' %>
+        <%= f.input :description, placeholder: 'Description', label:false,class: 'form-control' %>
+        <%= f.input :location, placeholder: 'Location', label:false,class: 'form-control' %>
+        <%= f.input :price, placeholder: 'Price', label:false,class: 'form-control'%>
+        <%= f.input :capacity, placeholder: 'Capacity', label:false, class: 'form-control' %>
+        <%= f.input :barbecue, class: 'form-control' %>
+        <%= f.input :pool, class: 'form-control' %>
+        <%= f.input :green_area, class: 'form-control' %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true }, class: 'form-control' %>
+        <%= f.submit "Create new Garden", class: "btn btn-success w-100"%>
       <% end %>
     </div>
 

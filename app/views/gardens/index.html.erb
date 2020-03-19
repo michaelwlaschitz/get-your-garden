@@ -1,35 +1,44 @@
 <div class = "container main-container">
   <div class = "card-container">
     <div class="row mx-4 my-3">
-      <h2>We found <span class="fat-green"> <%= @gardens.count %> </span> gardens</h2>
-    </div>
-    <% @gardens.each do |garden| %>
+        <%= form_with url: '/gardens', method: :get, local: true, class: "form-inline" do |f| %>
+          <div class='form-group'>
+            <%= f.text_field :q, id: :q, class: 'form-control', placeholder: "Location" %>
+           </div>
+          <%= f.submit "Filter by location", class: 'btn btn-success btn-search-form' %>
+        <% end %>
 
+    </div>
+    <h2>We found <span class="fat-green"> <%= @gardens.count(:all) %> </span> gardens</h2>
+  <% @gardens.each do |garden| %>
     <div class = "row mx-3 py-4 border-top">
       <div class = "garden-card">
         <div class="garden-img">
-          <%= link_to garden_path(garden) do %>
-          <%= cl_image_tag garden.photos.first.key, height: 200, width: 300, crop: :fill %>
+        <%= link_to garden_path(garden) do %>
+          <% if garden.photos.attached? %>
+            <%= cl_image_tag garden.photos.first.key, height: 200, width: 300, crop: :fill %>
+          <% else %>
+            <%= image_tag "Garden2.jpg", height: 200, width: 300, crop: :fill %>
           <% end %>
+        <% end %>
         </div>
         <div class="garden-info p-2">
           <div class="garden-title">
             <p> <%= link_to garden.title, garden_path(garden), class: "fat-green"%></p>
           </div>
-
           <div class="garden-amenities">
             <ul class="list-inline">
-              <% if garden.barbecue == true %>
+            <% if garden.barbecue == true %>
               <li class="list-inline-item"> <i class="fas fa-hamburger"></i> Grill </li>
-              <% end %>
-              <% if garden.green_area == true %>
+            <% end %>
+            <% if garden.green_area == true %>
               <li class="list-inline-item"> <i class="fas fa-seedling"></i> Green Area </li>
-              <% end %>
-              <% if garden.pool == true %>
+            <% end %>
+            <% if garden.pool == true %>
               <li class="list-inline-item"> <i class="fas fa-swimming-pool"></i> Pool </li>
-              <% end %>
+            <% end %>
             </ul>
-             </div>
+          </div>
 
             <div class="garden-description">
               <p> <%= garden.description %></p>
@@ -47,6 +56,7 @@
     </div>
     <% end %>
   </div>
+
 
   <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     <% @markers.each do |marker| %>
