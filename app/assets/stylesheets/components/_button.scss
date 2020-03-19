@@ -32,9 +32,19 @@
 }
 
 .background-orange {
-  background-color: $orange;
+  background-color: $light-orange;
+}
+
+.background-orange:hover {
+  background-color: $orange
 }
 
 .background-green {
   background-color: $dark-green;
+  opacity: 0.8;
+}
+
+.background-green:hover {
+  background-color: $dark-green;
+  opacity: 1;
 }
