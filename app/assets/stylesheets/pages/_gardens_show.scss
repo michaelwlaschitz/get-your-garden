@@ -1,0 +1,98 @@
+.container.show {
+  margin-bottom: 100px;
+}
+
+.container-first {
+  background-color: yellow;
+  padding: 0px 100px;
+  margin: 10px 60px;
+}
+
+.card-title {
+  margin-bottom: 30px;
+}
+
+.show-image {
+  border-radius: 24px;
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  padding-bottom: 20px;
+}
+
+#back-button {
+  margin-top: 20px;
+  padding-top: 20px;
+  text-decoration: none;
+}
+
+.backlink {
+  color: gray;
+  text-decoration: none;
+  border-bottom: 1px gray solid;
+}
+
+.backlink:hover {
+  padding-top: 10px;
+  color: gray;
+}
+
+// // FLEX BOX WITH 2 FLEX ITEMS
+
+.garden-container {
+  display: flex;
+  margin-top: 10px;
+}
+
+// // FLEX ITEM 1: .GARDEN-INFOS
+
+.garden-info-container {
+  // justify-content: space-between;
+  width: 700px;
+}
+
+.garden-amenities {
+justify-content: space-between;
+}
+
+.location {
+  color: #5f6368;
+  margin: 10px;
+}
+
+.garden-amenities {
+  color: #5f6368;
+}
+
+.show-icons {
+  padding: 20px;
+}
+
+.margin-bottom-big {
+  margin-bottom: 30px;
+}
+
+.garden-location #map {
+  width: 700px;
+  height: 350px;
+}
+
+// FLEX ITEM 2: .GARDEN-BOOKING
+
+.garden-booking {
+  margin-left: 50px;
+  padding: 20px;
+  width: 400px;
+  height: 400px;
+  h2{
+    text-align: center;
+  }
+}
+
+.btn {
+  background-color: $green;
+  margin-top: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+}
