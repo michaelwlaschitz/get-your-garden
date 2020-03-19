@@ -5,7 +5,7 @@
   </div>
   <div class="col-md-4">
     <div class="light-box-around">
-      <p>All bookings <%= @bookings.count %></p>
+      <p>All bookings (<%= @bookings.count %>)</p>
     </div>
   </div>
 </div>
@@ -14,24 +14,26 @@
 <div class="container-booking-requests">
   <div class="row mt-3">
   </div>
-  <div class="booking-card py-4 border-bottom">
+    <% @bookings.each do |booking| %>
+    <div class="booking-card py-4 border-bottom">
       <div class="booking-picture">
       <%= image_tag "ellyn.png", class: "avatar"%>
     </div>
 
-    <% @bookings.each do |booking| %>
-
     <div class="booking-title">
       <p class="bold"> <%= booking.user.first_name %> <%= booking.user.last_name %></p>
-      <p class="lighter middle-gray"> March, 20</p>
+      <p class="lighter middle-gray"> <%= booking.created_at.strftime("%A, %b %d") %></p>
     </div>
 
-    <div class="booking-details">
+    <div class="booking-price-location">
       <p class="bold">Total Income: <%= booking.garden.price %>€</p>
-      <p class="lighter middle-gray"><%= booking.garden.address %> (<%= booking.date %>, <%= booking.start_time %> - <%= booking.end_time %>)</p>
+      <p class="lighter middle-gray"> <span class="location-text"> <%= booking.garden.location %> </span></p>
     </div>
 
-    <% end %>
+    <div class="booking-dates">
+   <p><span class="d-inline-block lighter middle-gray"><%= booking.date.strftime("%A, %b %d") %></span></p>
+   <p><span class="d-inline-block lighter middle-gray"><%= booking.start_time %>:00 - <%= booking.end_time %>:00</span></p>
+    </div>
 
     <div class="button-accept">
       <p class="button background-green">Confirm</p>
@@ -41,8 +43,8 @@
       <p class="button background-orange">Reject</p>
     </div>
   </div>
+    <% end %>
 </div>
-
 
 
 <div class="container-booking-requests">
