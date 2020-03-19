@@ -1,0 +1,56 @@
+.light-box-around {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.light-box-around p {
+  border: 0.5px $gray solid;
+  width: 150px;
+  border-radius: 5px;
+  padding: 6px 16px;
+  font-weight: lighter;
+}
+
+.booking-card {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  margin-bottom: 16px;
+}
+
+.booking-picture {
+  margin-right: 24px;
+}
+
+.booking-title p {
+  margin-bottom: 3px;
+}
+
+.booking-title {
+  margin-right: 24px;
+}
+
+.booking-details {
+   margin-right: 16px;
+}
+
+.booking-details p {
+  margin-bottom: 3px;
+}
+
+.button-accept {
+  margin-right: 6px;
+}
+
+.button-reject{
+  margin-right: 6px;
+}
+
+.button-accept:hover {
+}
+
+.btn.button-warning:hover {
+}
+
+

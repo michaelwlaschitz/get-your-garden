@@ -12,3 +12,29 @@
 .btn.btn-success:hover {
   opacity: 1;
 }
+
+.btn {
+  margin-top: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.btn.btn-warning {
+  padding: 10px 20px;
+}
+
+.button {
+  border-radius: 6px;
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  font-size: 16px;
+}
+
+.background-orange {
+  background-color: $orange;
+}
+
+.background-green {
+  background-color: $dark-green;
+}
