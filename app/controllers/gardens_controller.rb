@@ -12,12 +12,17 @@ class GardensController < ApplicationController
     end
   end
 
-  def new
-    @garden = Garden.new
-  end
-
   def show
     @garden = Garden.find(params[:id])
+
+    @markers = [{
+      lat: @garden.latitude,
+      lng: @garden.longitude
+    }]
+  end
+
+  def new
+    @garden = Garden.new
   end
 
   def create
@@ -30,8 +35,6 @@ class GardensController < ApplicationController
       render :new
     end
   end
-
-
 
   def edit
   end
