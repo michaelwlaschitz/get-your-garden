@@ -11,10 +11,11 @@ class BookingsController < ApplicationController
     @booking.garden = @garden #assigning the garden from the url as the garden of the booking we are creating
     @booking.user = @user # assigning the current user as a user of the booking we are creating
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to garden_path(@garden), flash[:alert] = " Booking created :tada:!"
     else
       render :new
     end
+
   end
 
   def accept
