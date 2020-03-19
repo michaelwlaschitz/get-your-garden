@@ -1,17 +1,12 @@
 <div class = "container show">
+
   <div class="d-flex justify-content-between mt-4">
-
     <div class="card-title">
-      <h4><%=@garden.title%></h4>
-      <div class="location">
-        <%=@garden.location%>
-      </div>
+      <h3><%=@garden.title%></h3>
     </div>
-
     <div>
       <%= link_to "Back to Gardens", gardens_path, class: "backlink"%>
     </div>
-
   </div>
 
   <div class="garden-photo">
@@ -22,31 +17,49 @@
     <% end %>
   </div>
 
-  <div class="garden-infos">
-    <div class="garden-info">
-      <div>
-        <h3><%=@garden.description%></h3>
+  <div class="garden-container">
+
+    <div class="garden-info-container">
+        <h4><%=@garden.description%></h4>
         <ul class="list-inline show-icons">
-         <li class="list-inline-item"> <i class="fas fa-user-friends"></i> <%=@garden.capacity%> people</li>
-         <% if @garden.barbecue == true %>
-         <li class="list-inline-item"> <i class="fas fa-hamburger"></i> Grill </li>
-         <% end %>
-         <% if @garden.green_area == true %>
-         <li class="list-inline-item"> <i class="fas fa-seedling"></i> Green Area </li>
-         <% end %>
-         <% if @garden.pool == true %>
-         <li class="list-inline-item"> <i class="fas fa-swimming-pool"></i> Pool </li>
-         <% end %>
-       </ul>
-     </li>
-   </div>
- </div>
- <div class="garden-booking">
-  <h2><b><%=@garden.price%>$/hour</b></h2>
-  <button type="button" class="btn btn-success w-100">Book</button>
-</div>
-</div>
-<p class= "margin-bottom-big"> Top garden with everything you need for your family or friends. We take care that everything is clean and ready when you come and ask you to do the same when you leave. Enjoy an amazing stay and leave us a good review if you liked it, so more people can come to our lovely home. </p>
+          <li class="list-inline-item"> <i class="fas fa-user-friends"></i> <%=@garden.capacity%> people</li>
+          <% if @garden.barbecue == true %>
+            <li class="list-inline-item"> <i class="fas fa-hamburger"></i> Grill </li>
+          <% end %>
+          <% if @garden.green_area == true %>
+            <li class="list-inline-item"> <i class="fas fa-seedling"></i> Green Area </li>
+          <% end %>
+          <% if @garden.pool == true %>
+            <li class="list-inline-item"> <i class="fas fa-swimming-pool"></i> Pool </li>
+          <% end %>
+        </ul>
+
+        <p class= "margin-bottom-big"> Top garden with everything you need for your family or friends. We take care that everything is clean and ready when you come and ask you to do the same when you leave. Enjoy an amazing stay and leave us a good review if you liked it, so more people can come to our lovely home. </p>
+
+        <div class="garden-location">
+          <div class="location">
+            <%=@garden.location%>
+          </div>
+          <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
+
+    </div>
+
+    <div class="garden-booking border">
+      <h2><b><%=@garden.price%>$/hour</b></h2>
+
+      <%= simple_form_for [@garden, @booking] do |f| %>
+      <%= f.input :date, placeholder: 'Date', label: false, as: :string, input_html: {class: "datepicker"} %>
+      <%= f.input :start_time, prompt: 'Start time', label: false,collection: (0..24).to_a %>
+      <%= f.input :end_time, prompt: 'End time', label: false,collection: (0..24).to_a %>
+      <%= f.submit "Book", class: "btn btn-success w-100"%>
+      <% end %>
+
+    </div>
+
+  </div>
+
 
 
 
