@@ -9,3 +9,8 @@ initMapbox();
 import { initAutocomplete } from '../plugins/init_autocomplete';
 
 initAutocomplete();
+
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css"; // Note this is important!
+
+flatpickr(".datepicker", {});
