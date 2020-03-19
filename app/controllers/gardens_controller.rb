@@ -3,12 +3,10 @@ class GardensController < ApplicationController
 
   def index
     if params[:q].present?
-      @gardens = Garden.where("location ILIKE ?", "%#{params[:q]}%")
+      @gardens = Garden.near(params[:q], 20)
     else
       @gardens = Garden.all
     end
-
-    @gardens = Garden.geocoded
 
     @markers = @gardens.map do |garden|
       {
@@ -36,8 +34,6 @@ class GardensController < ApplicationController
       render :new
     end
   end
-
-
 
   def edit
   end
