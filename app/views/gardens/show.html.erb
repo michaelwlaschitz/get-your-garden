@@ -51,8 +51,16 @@
 
       <%= simple_form_for [@garden, @booking] do |f| %>
       <%= f.input :date, placeholder: 'Date', label: false, as: :string, input_html: {class: "datepicker"} %>
-      <%= f.input :start_time, prompt: 'Start time', label: false,collection: (0..24).to_a %>
-      <%= f.input :end_time, prompt: 'End time', label: false,collection: (0..24).to_a %>
+      <div class="d-flex justify-content-between">
+        <%= f.input :start_time, prompt: 'Start time', label: false,collection: (0..24).to_a, input_html: {style: 'width: 150px'} %>
+        <%= f.input :end_time, prompt: 'End time', label: false,collection: (0..24).to_a, input_html: {style: 'width: 150px'} %>
+      </div>
+      <div class="d-flex justify-content-between">
+        <p>Total</p>
+        <div class="calculation" data-price="<%= @garden.price %>">
+          _
+        </div>
+      </div>
       <%= f.submit "Book", class: "btn btn-success w-100"%>
       <% end %>
 
