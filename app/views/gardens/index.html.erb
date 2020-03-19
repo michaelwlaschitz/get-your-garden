@@ -1,6 +1,13 @@
 <div class = "container main-container">
   <div class = "card-container">
     <div class="row mx-4 my-3">
+     <h2>Preferences:</h2>
+      <%= form_with url: '/gardens', method: :get, local: true do |f| %>
+      <%= f.text_field :q, id: :q, class: 'form-control' %>
+      <%= form.check_box :pool,  %>
+      <%= f.submit "Book your garden now", class: 'btn btn-success' %>
+
+    <% end %>
       <h2>We found <span class="fat-green"> <%= @gardens.count %> </span> gardens</h2>
     </div>
     <% @gardens.each do |garden| %>
@@ -16,7 +23,6 @@
           <div class="garden-title">
             <p> <%= link_to garden.title, garden_path(garden), class: "fat-green"%></p>
           </div>
-
           <div class="garden-amenities">
             <ul class="list-inline">
               <% if garden.barbecue == true %>

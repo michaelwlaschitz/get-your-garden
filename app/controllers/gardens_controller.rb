@@ -2,6 +2,12 @@ class GardensController < ApplicationController
      skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    if params[:q].present?
+      @gardens = Garden.where("location ILIKE ?", "%#{params[:q]}%")
+    else
+      @gardens = Garden.all
+    end
+
     @gardens = Garden.geocoded
 
     @markers = @gardens.map do |garden|
