@@ -1,0 +1,30 @@
+<div class="container-form">
+  <!-- Form -->
+  <div class="form-grid">
+    <div class="whitespace">
+    </div>
+
+    <div class="form">
+      <h1 class="fat-green">Create your Garden</h1>
+      <!-- app/views/restaurants/_form.html.erb -->
+      <h2>Leave a review:</h2>
+        <%= simple_form_for [@booking, @review] do |f| %>
+         <%= f.input :content, label: false, class: 'form-control', :input_html => {style: 'width: 700px'}  %>
+         <%= f.submit "Post", class: "btn btn-light" %>
+        <% end %>
+
+    </div>
+
+    <div class="whitespace">
+    </div>
+
+  </div>
+
+  <div>
+    <%= image_tag "Garden_Vertical.jpg", class: "form-image"%>
+  </div>
+</div>
+
+
+
+

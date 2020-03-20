@@ -42,42 +42,23 @@
           </div>
           <div class="container reviews-container py-2">
 
-            <!-- for each review, add a full row FROM HERE -->
-            <div class="row review border-bottom">
-              <div class="review-card">
-                  <div class="container-avatar+name d-flex py-2 align-items-center">
-                  <div><%= image_tag "ellyn.png", class: "avatar"%></div>
-                  <div class="name px-4"> Laura </div>
-                </div>
-                <div class="review description py-1">
-                  <p>Amazing garden!</p>
-                </div>
-              </div>
-            </div>
-            <!-- TILL HERE -->
+          <% @reviews.each do |review| %>
 
-            <!-- delete this test rom, FROM HERE -->
             <div class="row review border-bottom">
               <div class="review-card">
                   <div class="container-avatar+name d-flex py-2 align-items-center">
                   <div><%= image_tag "ellyn.png", class: "avatar"%></div>
-                  <div class="name px-4"> Laura </div>
+                  <div class="name px-4"> <%= review.booking.user.first_name %> </div>
                 </div>
                 <div class="review description py-1">
-                  <p>Amazing garden!</p>
+                  <p> <%= review.content  %> </p>
                 </div>
               </div>
             </div>
-            <!-- TILL HERE -->
-            <div class="row border-bottom">
-              <div class="review-creator py-3">
-                <p>Leave a review:</p>
-                <%= simple_form_for [@garden] do |f| %>
-                 <%= f.input :description, label: false, class: 'form-control', :input_html => {style: 'width: 700px'}  %>
-                 <%= f.submit "Post", class: "btn btn-light" %>
-                <% end %>
-              </div>
-            </div>
+
+          <% end %>
+
+
           </div>
         </div>
 

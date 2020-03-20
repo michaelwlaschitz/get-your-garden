@@ -59,12 +59,6 @@ file6 = URI.open("https://5.imimg.com/data5/PU/DO/MY-6429052/garden-swimming-poo
 garden6.photos.attach(io: file6, filename: 'img6.jpg', content_type: 'image/jpg')
 
 
-garden7 = Garden.create(title:"Luxurious garden with huge swimming pool ", description:"Come and enjoy our huge garden. Here you can enjoy the swiming pool, take cool pictures and have a good time.", location:"46/532-540 George St, Sydney NSW 2000, Australia", price:"50$", capacity:"30", barbecue:"false", pool:"true", green_area:"true", user_id: user1.id)
-
-file7 = URI.open("https://i.pinimg.com/originals/4a/92/00/4a9200e062249103ed138b928d74d4e7.jpg")
-garden7.photos.attach(io: file7, filename: 'img7.jpg', content_type: 'image/jpg')
-
-
 garden8 = Garden.create(title:"Spacious garden with a huge grill ", description:"With this weather you can come and chill with your friend and have a nice lunch ", location:"469 Kent St, Sydney NSW 2000, Australia", price:"40$", capacity:"15", barbecue:"true", pool:"false", green_area:"true", user_id: user2.id)
 
 file8 = URI.open("https://i.ytimg.com/vi/U5-wLn0kNlg/maxresdefault.jpg")
@@ -83,8 +77,14 @@ file10 = URI.open("https://www.graduatelandscapes.co.uk/bmFiles/size3/Surrey-gar
 garden10.photos.attach(io: file10, filename: 'img10.jpg', content_type: 'image/jpg')
 
 
-booking1 = Booking.create(user: user2, garden: Garden.first, start_time: 14, end_time: 20, date: Date.today)
-booking1 = Booking.create(user: user3, garden: Garden.first, start_time: 14, end_time: 20, date: Date.today)
-booking1 = Booking.create(user: user3, garden: Garden.first, start_time: 14, end_time: 20, date: Date.today)
-booking1 = Booking.create(user: user4, garden: Garden.first, start_time: 14, end_time: 20, date: Date.today)
-booking1 = Booking.create(user: user4, garden: Garden.first, start_time: 14, end_time: 20, date: Date.today)
+booking1 = Booking.create(user: user2, garden_id: garden1.id, start_time: 14, end_time: 20, date: Date.today)
+booking2 = Booking.create(user: user3, garden_id: garden2.id, start_time: 14, end_time: 20, date: Date.today)
+booking3 = Booking.create(user: user3, garden_id: garden3.id, start_time: 14, end_time: 20, date: Date.today)
+booking4 = Booking.create(user: user4, garden_id: garden4.id, start_time: 14, end_time: 20, date: Date.today)
+booking5 = Booking.create(user: user4, garden_id: garden5.id, start_time: 14, end_time: 20, date: Date.today)
+
+review1 = Review.create(content:"Amazing garden and experience", booking_id: booking1.id)
+review2 = Review.create(content:"Amazing garden and experience", booking_id: booking2.id)
+review3 = Review.create(content:"Amazing garden and experience", booking_id: booking3.id)
+review4 = Review.create(content:"Amazing garden and experience", booking_id: booking4.id)
+review5 = Review.create(content:"Amazing garden and experience", booking_id: booking5.id)
