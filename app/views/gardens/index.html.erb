@@ -1,11 +1,24 @@
 <div class = "container main-container">
   <div class = "card-container">
     <div class="row mx-4 my-3">
-        <%= form_with url: '/gardens', method: :get, local: true, class: "form-inline" do |f| %>
+        <%= form_with url: '/gardens', method: :get, local: true do |f| %>
           <div class='form-group'>
             <%= f.text_field :q, id: :q, class: 'form-control', placeholder: "Location" %>
+            <%= f.text_field :capacity, class: 'form-control', placeholder: "Nr. of people" %>
            </div>
-          <%= f.submit "Filter by location", class: 'btn btn-success btn-search-form' %>
+          <div class= 'form-check'>
+            <%= check_box_tag :pool, class: 'form-check-input search-checkbox' %>
+            <%= label_tag :pool, ("Garden with pool"), class: 'form-check-label' %>
+          </div>
+          <div class= 'form-check'>
+            <%= check_box_tag :barbecue, class: 'form-check-input' %>
+            <%= label_tag :barbecue, ("Garden with barbecue"), class: 'form-check-label' %>
+          </div>
+          <div class= 'form-check'>
+            <%= check_box_tag :green_area, class: 'form-check-input' %>
+            <%= label_tag :green_area, ("Garden with green area"), class: 'form-check-label' %>
+          </div>
+          <%= f.submit "Filter by preferences", class: 'btn btn-success btn-search-form' %>
         <% end %>
 
     </div>
