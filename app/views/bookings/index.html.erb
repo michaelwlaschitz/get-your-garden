@@ -26,7 +26,7 @@
     </div>
 
     <div class="booking-price-location">
-      <p class="bold">Total Income: <%= booking.garden.price %>€</p>
+      <p class="bold">Total Income: <%= (booking.end_time - booking.start_time) * booking.garden.price %>€</p>
       <p class="lighter middle-gray"> <span class="location-text"> <%= booking.garden.location %> </span></p>
     </div>
 
@@ -91,7 +91,7 @@
     </div>
 
     <div class="booking-price-location">
-      <p class="bold">Price: <%= booking.garden.price %>€</p>
+      <p class="bold">Price: <%=(booking.end_time - booking.start_time) * booking.garden.price %>€</p>
       <p class="lighter middle-gray"> <span class="location-text"> <%= booking.garden.location %> </span></p>
     </div>
 
