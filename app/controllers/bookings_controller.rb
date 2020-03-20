@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
 
     if @booking.save
       flash[:alert] = " Booking requested!"
-      redirect_to dashboard_path
+      redirect_to bookings_path
     else
       render :new
     end

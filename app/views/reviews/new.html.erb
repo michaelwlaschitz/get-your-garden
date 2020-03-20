@@ -5,9 +5,9 @@
     </div>
 
     <div class="form">
-      <h1 class="fat-green">Create your Garden</h1>
+      <h1 class="fat-green">Leave a Review</h1>
       <!-- app/views/restaurants/_form.html.erb -->
-      <h2>Leave a review:</h2>
+      <h2>Tell us how you liked the Garden</h2>
         <%= simple_form_for [@booking, @review] do |f| %>
          <%= f.input :content, label: false, class: 'form-control', :input_html => {style: 'width: 700px'}  %>
          <%= f.submit "Post", class: "btn btn-light" %>
