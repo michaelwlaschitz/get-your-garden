@@ -12,7 +12,8 @@ class BookingsController < ApplicationController
     @booking.user = @user # assigning the current user as a user of the booking we are creating
 
     if @booking.save
-      redirect_to garden_path(@garden), flash["alert"] = "Booking created --- tada!"
+      flash[:alert] = "Booking requested!"
+      redirect_to garden_path(@garden)
     else
       render :new
     end
