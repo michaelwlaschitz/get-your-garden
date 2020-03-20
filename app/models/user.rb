@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :gardens, dependent: :destroy
   has_many :bookings
+  has_many :host_bookings, through: :gardens, source: :bookings
 end

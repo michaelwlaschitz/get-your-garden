@@ -19,9 +19,10 @@
 
 .booking-card {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: top;
   margin-bottom: 16px;
+  width: 950px;
 }
 
 .booking-picture {
@@ -36,26 +37,45 @@
   margin-right: 32px;
 }
 
-.booking-details {
+.booking-price-location {
    margin-right: 32px;
 }
 
-.booking-details p {
+.booking-price-location p {
   margin-bottom: 3px;
 }
 
+.booking-dates {
+   margin-right: 32px;
+   max-width: 200px;
+}
+
+.booking-dates p {
+  margin-bottom: 0px;
+  max-width: 150px;
+}
+
 .button-accept {
-  margin-right: 12px;
+  max-width: 100px;
 }
 
 .button-reject{
   margin-right: 6px;
+  max-width: 100px;
 }
 
 .button-accept:hover {
 }
 
 .btn.button-warning:hover {
+}
+
+.location-text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 300px;
+  display: inline-block;
 }
 
 
