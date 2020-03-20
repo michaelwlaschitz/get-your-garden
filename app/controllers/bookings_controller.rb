@@ -1,5 +1,9 @@
 class BookingsController < ApplicationController
 
+  def show
+
+  end
+
   def index
     @bookings = current_user.host_bookings.order(created_at: :asc)
   end
