@@ -1,11 +1,18 @@
 class ReviewsController < ApplicationController
 
+  def new
+    @booking = Booking.find(params[:booking_id])
+    @review = Review.new
+  end
+
   def create
-    @garden = Garden.find(params[:garden_id])
+    @booking = Booking.find(params[:booking_id])
     @review = Review.new(review_params)
-    @review.garden = @garden
+    @review.booking = @booking
+    @review.save
     if @review.save
-      redirect_to garden_path(@garden)
+      flash[:alert] = "Review posted, thank you!"
+      redirect_to bookings_path
     else
       render 'gardens/show'
     end
@@ -16,5 +23,4 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:content)
   end
-end  end
 end

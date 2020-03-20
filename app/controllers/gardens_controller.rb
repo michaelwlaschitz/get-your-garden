@@ -41,6 +41,8 @@ class GardensController < ApplicationController
       lat: @garden.latitude,
       lng: @garden.longitude
     }]
+
+    @reviews = @garden.reviews
   end
 
   def new

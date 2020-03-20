@@ -1,9 +1,5 @@
 class BookingsController < ApplicationController
 
-  def show
-
-  end
-
   def index
     @bookings = current_user.host_bookings.order(created_at: :asc)
   end
@@ -17,7 +13,7 @@ class BookingsController < ApplicationController
 
     if @booking.save
       flash[:alert] = " Booking requested!"
-      redirect_to garden_path(@garden)
+      redirect_to dashboard_path
     else
       render :new
     end
