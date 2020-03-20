@@ -6,6 +6,7 @@ require 'open-uri'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Review.destroy_all
 Booking.destroy_all
 Garden.destroy_all
 User.destroy_all
@@ -82,9 +83,28 @@ booking2 = Booking.create(user: user3, garden_id: garden2.id, start_time: 14, en
 booking3 = Booking.create(user: user3, garden_id: garden3.id, start_time: 14, end_time: 20, date: Date.today)
 booking4 = Booking.create(user: user4, garden_id: garden4.id, start_time: 14, end_time: 20, date: Date.today)
 booking5 = Booking.create(user: user4, garden_id: garden5.id, start_time: 14, end_time: 20, date: Date.today)
+booking6 = Booking.create(user: user2, garden_id: garden6.id, start_time: 14, end_time: 20, date: Date.today)
+booking8 = Booking.create(user: user3, garden_id: garden8.id, start_time: 14, end_time: 20, date: Date.today)
+booking9 = Booking.create(user: user4, garden_id: garden9.id, start_time: 14, end_time: 20, date: Date.today)
+booking10 = Booking.create(user: user4, garden_id: garden10.id, start_time: 14, end_time: 20, date: Date.today)
 
 review1 = Review.create(content:"Amazing garden and experience", booking_id: booking1.id)
 review2 = Review.create(content:"Amazing garden and experience", booking_id: booking2.id)
 review3 = Review.create(content:"Amazing garden and experience", booking_id: booking3.id)
 review4 = Review.create(content:"Amazing garden and experience", booking_id: booking4.id)
 review5 = Review.create(content:"Amazing garden and experience", booking_id: booking5.id)
+review6 = Review.create(content:"Amazing garden and experience", booking_id: booking6.id)
+review7 = Review.create(content:"Amazing garden and experience", booking_id: booking6.id)
+review8 = Review.create(content:"Amazing garden and experience", booking_id: booking8.id)
+review9 = Review.create(content:"Amazing garden and experience", booking_id: booking9.id)
+review10 = Review.create(content:"Amazing garden and experience", booking_id: booking10.id)
+review1 = Review.create(content:"So cool", booking_id: booking1.id)
+review2 = Review.create(content:"So cool", booking_id: booking2.id)
+review3 = Review.create(content:"So cool", booking_id: booking3.id)
+review4 = Review.create(content:"So cool", booking_id: booking4.id)
+review5 = Review.create(content:"So cool", booking_id: booking5.id)
+review6 = Review.create(content:"So cool", booking_id: booking6.id)
+review7 = Review.create(content:"So cool", booking_id: booking6.id)
+review8 = Review.create(content:"So cool", booking_id: booking8.id)
+review9 = Review.create(content:"So cool", booking_id: booking9.id)
+review10 = Review.create(content:"So cool", booking_id: booking10.id)
