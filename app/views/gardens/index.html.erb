@@ -1,79 +1,85 @@
 <div class = "container main-container">
   <div class = "card-container">
     <div class="row mx-4 my-3">
-        <%= form_with url: '/gardens', method: :get, local: true do |f| %>
-          <div class='form-group'>
-            <%= f.text_field :q, id: :q, class: 'form-control', placeholder: "Location" %>
-            <%= f.text_field :capacity, class: 'form-control', placeholder: "Nr. of people" %>
-           </div>
-          <div class= 'form-check'>
-            <%= check_box_tag :pool, class: 'form-check-input search-checkbox' %>
-            <%= label_tag :pool, ("Garden with pool"), class: 'form-check-label' %>
-          </div>
-          <div class= 'form-check'>
-            <%= check_box_tag :barbecue, class: 'form-check-input' %>
-            <%= label_tag :barbecue, ("Garden with barbecue"), class: 'form-check-label' %>
-          </div>
-          <div class= 'form-check'>
-            <%= check_box_tag :green_area, class: 'form-check-input' %>
-            <%= label_tag :green_area, ("Garden with green area"), class: 'form-check-label' %>
-          </div>
-          <%= f.submit "Filter by preferences", class: 'btn btn-success btn-search-form' %>
-        <% end %>
-
-    </div>
-    <h2>We found <span class="fat-green"> <%= @gardens.count(:all) %> </span> gardens</h2>
-  <% @gardens.each do |garden| %>
-    <div class = "row mx-3 py-4 border-top">
-      <div class = "garden-card">
-        <div class="garden-img">
-        <%= link_to garden_path(garden) do %>
-          <% if garden.photos.attached? %>
-            <%= cl_image_tag garden.photos.first.key, height: 200, width: 300, crop: :fill %>
-          <% else %>
-            <%= image_tag "Garden2.jpg", height: 200, width: 300, crop: :fill %>
-          <% end %>
-        <% end %>
+      <%= form_with url: '/gardens', method: :get, local: true do |f| %>
+      <div class="form-row">
+        <div class='col-md-5 form-group'>
+          <%= f.text_field :q, id: :q, class: 'form-control index-search', placeholder: "Location" %>
         </div>
-        <div class="garden-info p-2">
-          <div class="garden-title">
-            <p> <%= link_to garden.title, garden_path(garden), class: "fat-green"%></p>
-          </div>
-          <div class="garden-amenities">
-            <ul class="list-inline">
+        <div class='col-md-4 form-group'>
+          <%= f.text_field :capacity, class: 'form-control index-search', placeholder: "Nr. of people" %>
+        </div>
+        <div class='col-md-2 form-group'>
+          <%= f.submit "Filter", class: 'btn btn-success btn-search-form' %>
+        </div>
+      </div>
+      <div class= 'form-check form-check-inline'>
+        <%= check_box_tag :pool, class: 'form-check-input search-checkbox' %>
+        <%= label_tag :pool, ("Pool"), class: 'form-check-label search-checkbox' %>
+      </div>
+      <div class= 'form-check form-check-inline'>
+        <%= check_box_tag :barbecue, class: 'form-check-input' %>
+        <%= label_tag :barbecue, ("Barbecue"), class: 'form-check-label search-checkbox' %>
+      </div>
+      <div class= 'form-check form-check-inline'>
+        <%= check_box_tag :green_area, class: 'form-check-input' %>
+        <%= label_tag :green_area, ("Green area"), class: 'form-check-label search-checkbox' %>
+      </div>
+      <% end %>
+    </div>
+
+  <h2>We found <span class="fat-green"> <%= @gardens.count(:all) %> </span> gardens</h2>
+  <% @gardens.each do |garden| %>
+  <div class = "row mx-3 py-4 border-top">
+    <div class = "garden-card">
+      <div class="garden-img">
+        <%= link_to garden_path(garden) do %>
+        <% if garden.photos.attached? %>
+        <%= cl_image_tag garden.photos.first.key, height: 200, width: 300, crop: :fill %>
+        <% else %>
+        <%= image_tag "Garden2.jpg", height: 200, width: 300, crop: :fill %>
+        <% end %>
+        <% end %>
+      </div>
+      <div class="garden-info p-2">
+        <div class="garden-title">
+          <p> <%= link_to garden.title, garden_path(garden), class: "fat-green"%></p>
+        </div>
+        <div class="garden-amenities">
+          <ul class="list-inline">
             <% if garden.barbecue == true %>
-              <li class="list-inline-item"> <i class="fas fa-hamburger"></i> Grill </li>
+            <li class="list-inline-item"> <i class="fas fa-hamburger"></i> Grill </li>
             <% end %>
             <% if garden.green_area == true %>
-              <li class="list-inline-item"> <i class="fas fa-seedling"></i> Green Area </li>
+            <li class="list-inline-item"> <i class="fas fa-seedling"></i> Green Area </li>
             <% end %>
             <% if garden.pool == true %>
-              <li class="list-inline-item"> <i class="fas fa-swimming-pool"></i> Pool </li>
+            <li class="list-inline-item"> <i class="fas fa-swimming-pool"></i> Pool </li>
             <% end %>
-            </ul>
-          </div>
+          </ul>
+        </div>
 
-            <div class="garden-description">
-              <p> <%= garden.description %></p>
-            </div>
-            <div class="d-flex justify-content-between align-items-center">
-            <div class="garden-price">
-              <h2> <%= garden.price %> $ <span class="smaller-text">/ hour </span> </h2>
-            </div>
-            <div class="garden-link">
-              <p><i class="fas fa-star"></i> 5</p>
-            </div>
-            </div>
+        <div class="garden-description">
+          <p> <%= garden.description %></p>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="garden-price">
+            <h2> <%= garden.price %> $ <span class="smaller-text">/ hour </span> </h2>
+          </div>
+          <div class="garden-link">
+            <p><i class="fas fa-star"></i> 5</p>
+          </div>
         </div>
       </div>
     </div>
-    <% end %>
   </div>
+  <% end %>
+</div>
 
 
-  <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    <% @markers.each do |marker| %>
-    <% end %>
-  </div>
+<div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  <% @markers.each do |marker| %>
+  <% end %>
+</div>
 
 </div>
