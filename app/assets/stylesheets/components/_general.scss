@@ -1,6 +1,7 @@
 body {
   background-color: white;
   font-family:'Open Sans';
+  overflow-x: hidden;
 }
 
 h1 {
@@ -26,6 +27,16 @@ h3 {
   }
 }
 
+.fat-green-no-effect {
+  color: $garden-green;
+  font-weight: bold;
+}
+
+.fat-orange {
+  color: $orange;
+  font-weight: bold;
+}
+
 .fat {
   font-weight: bold;
   margin-bottom: 16px;
@@ -34,10 +45,12 @@ h3 {
 a {
   text-decoration: none;
   margin: 0px;
+  color: white;
 }
 
 a:hover {
   text-decoration: none;
+  text-decoration: white;
 }
 
 

@@ -26,7 +26,6 @@
   background-color: $green;
 }
 
-
 .btn.btn-warning {
   padding: 10px 20px;
 }
@@ -41,18 +40,27 @@
 
 .background-orange {
   background-color: $light-orange;
+  color: white;
+  margin-bottom: 0;
 }
 
 .background-orange:hover {
-  background-color: $orange
+  background-color: $orange;
+  color: white;
+  margin-bottom: 0;
 }
 
 .background-green {
   background-color: $dark-green;
   opacity: 0.8;
+  color: white;
+  margin-bottom: 0;
 }
 
 .background-green:hover {
   background-color: $dark-green;
   opacity: 1;
+  color: white;
+  margin-bottom: 0;
 }
+

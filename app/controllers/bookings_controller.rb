@@ -1,7 +1,11 @@
 class BookingsController < ApplicationController
 
+  def show
+
+  end
+
   def index
-    @bookings = current_user.host_bookings
+    @bookings = current_user.host_bookings.order(created_at: :asc)
   end
 
   def create
@@ -10,9 +14,10 @@ class BookingsController < ApplicationController
     @garden = Garden.find(params[:garden_id]) #find the gardin id in the url
     @booking.garden = @garden #assigning the garden from the url as the garden of the booking we are creating
     @booking.user = @user # assigning the current user as a user of the booking we are creating
-    
+
     if @booking.save
-      redirect_to garden_path(@garden), flash[:alert] = " Booking created :tada:!"
+      flash[:alert] = " Booking requested!"
+      redirect_to garden_path(@garden)
     else
       render :new
     end
@@ -20,9 +25,17 @@ class BookingsController < ApplicationController
   end
 
   def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = "accepted"
+    @booking.save
+    redirect_to bookings_path
   end
 
   def reject
+    @booking = Booking.find(params[:id])
+    @booking.status = "rejected"
+    @booking.save
+    redirect_to bookings_path
   end
 
   private
