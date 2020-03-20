@@ -14,3 +14,7 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css"; // Note this is important!
 
 flatpickr(".datepicker", {});
+
+import { init_price_calculation } from '../components/price';
+
+init_price_calculation();
