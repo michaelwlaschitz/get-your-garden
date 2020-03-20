@@ -14,14 +14,14 @@
 <div class="container-booking-requests">
   <div class="row mt-3">
   </div>
-    <% @bookings.each do |booking| %>
-    <div class="booking-card py-4 border-bottom">
-      <div class="booking-picture">
+  <% @bookings.each do |booking| %>
+  <div class="booking-card py-4 border-bottom">
+    <div class="booking-picture">
       <%= image_tag "ellyn.png", class: "avatar"%>
     </div>
 
     <div class="booking-title">
-      <p class="bold"> <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+      <p class="bold"> <%= booking.user.first_name %> <%= booking.user.last_name.first %>.</p>
       <p class="lighter middle-gray"> <%= booking.created_at.strftime("%A, %b %d") %></p>
     </div>
 
@@ -31,19 +31,35 @@
     </div>
 
     <div class="booking-dates">
-   <p><span class="d-inline-block lighter middle-gray"><%= booking.date.strftime("%A, %b %d") %></span></p>
-   <p><span class="d-inline-block lighter middle-gray"><%= booking.start_time %>:00 - <%= booking.end_time %>:00</span></p>
+     <p><span class="d-inline-block lighter middle-gray"><%= booking.date.strftime("%A, %b %d") %></span></p>
+     <p><span class="d-inline-block lighter middle-gray"><%= booking.start_time %>:00 - <%= booking.end_time %>:00</span></p>
+   </div>
+
+ <!--   buttons depending on status of booking -->
+
+   <% if booking.status == "pending"%>
+
+    <div class="d-flex mt-2 justify-content-around">
+      <div class="mr-1">
+        <%= link_to "Accept", accept_booking_path(booking), method: :patch, class: "button background-green"%>
+      </div>
+
+      <div class="ml-1">
+        <%= link_to "Reject", reject_booking_path(booking), method: :patch, class: "button background-orange"%>
+      </div>
     </div>
 
-    <div class="button-accept">
-      <p class="button background-green">Confirm</p>
-    </div>
+  <% elsif booking.status == "accepted"%>
+    <p class="fat-green-no-effect"> Booking confirmed! </p>
 
-    <div class="button-reject">
-      <p class="button background-orange">Reject</p>
-    </div>
-  </div>
-    <% end %>
+  <% else %>
+    <p class="fat-orange"> Booking rejected! </p>
+
+  <% end %>
+
+</div>
+
+<% end %>
 </div>
 
 

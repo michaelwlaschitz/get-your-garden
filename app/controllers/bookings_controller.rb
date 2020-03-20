@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = current_user.host_bookings
+    @bookings = current_user.host_bookings.order(created_at: :asc)
   end
 
   def create
@@ -20,9 +20,17 @@ class BookingsController < ApplicationController
   end
 
   def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = "accepted"
+    @booking.save
+    redirect_to bookings_path
   end
 
   def reject
+    @booking = Booking.find(params[:id])
+    @booking.status = "rejected"
+    @booking.save
+    redirect_to bookings_path
   end
 
   private
