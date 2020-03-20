@@ -71,6 +71,16 @@ justify-content: space-between;
 
 .margin-bottom-big {
   margin-bottom: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.review {
+  margin-bottom: 8px;
+}
+
+.review-creator {
+  margin-bottom: 10px;
 }
 
 .garden-location #map {
@@ -81,6 +91,8 @@ justify-content: space-between;
 // FLEX ITEM 2: .GARDEN-BOOKING
 
 .garden-booking {
+  position: sticky;
+  top: 20px;
   margin-left: 50px;
   padding: 20px;
   width: 400px;
