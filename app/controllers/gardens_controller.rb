@@ -53,11 +53,11 @@ class GardensController < ApplicationController
     @user = current_user
     @garden = Garden.new(garden_params)
     @garden.user = @user
-    # if @garden.save
-    #   redirect_to garden_path(@garden)
-    # else
-    #   render :new
-    # end
+    if @garden.save
+      redirect_to garden_path(@garden)
+    else
+      render :new
+    end
   end
 
   def edit
