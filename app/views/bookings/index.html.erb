@@ -5,7 +5,7 @@
   </div>
   <div class="col-md-4">
     <div class="light-box-around">
-      <p>All bookings (<%= @bookings.count %>)</p>
+      <p>Bookings (<%= @bookings.count %>)</p>
     </div>
   </div>
 </div>
@@ -60,4 +60,64 @@
 </div>
 
 <% end %>
+
 </div>
+
+<div class="row border-bottom">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4">
+    <div class="light-box-around">
+      <p>Requests (<%= @booking_requests.count %>)</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="container-booking-requests">
+  <div class="row mt-3">
+  </div>
+  <% @booking_requests.each do |booking| %>
+  <div class="booking-card py-4 border-bottom">
+    <div class="booking-picture">
+      <%= cl_image_tag booking.garden.photos.first.key, class: "avatar"%>
+    </div>
+
+    <div class="booking-title">
+      <p class="bold"> <%= booking.garden.title.truncate(12)%></p>
+      <p class="lighter middle-gray"> <%= booking.created_at.strftime("%A, %b %d") %></p>
+    </div>
+
+    <div class="booking-price-location">
+      <p class="bold">Price: <%= booking.garden.price %>€</p>
+      <p class="lighter middle-gray"> <span class="location-text"> <%= booking.garden.location %> </span></p>
+    </div>
+
+    <div class="booking-dates">
+     <p><span class="d-inline-block lighter middle-gray"><%= booking.date.strftime("%A, %b %d") %></span></p>
+     <p><span class="d-inline-block lighter middle-gray"><%= booking.start_time %>:00 - <%= booking.end_time %>:00</span></p>
+   </div>
+
+ <!--   buttons depending on status of booking -->
+
+   <% if booking.status == "accepted"%>
+
+   <p class="fat-green-no-effect"> Booking is confirmed! </p>
+
+  <% elsif booking.status == "rejected"%>
+    <p class="fat-orange"> Booking is rejected! </p>
+
+  <% else %>
+    <p class=> Booking is pending! </p>
+
+  <% end %>
+
+</div>
+
+<% end %>
+
+
+
+
