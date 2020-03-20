@@ -21,7 +21,7 @@
     </div>
 
     <div class="booking-title">
-      <p class="bold"> <%= booking.user.first_name %> <%= booking.user.last_name.first %>.</p>
+      <p class="bold"> <%= booking.user.first_name %> <%= booking.user.last_name&.first %>.</p>
       <p class="lighter middle-gray"> <%= booking.created_at.strftime("%A, %b %d") %></p>
     </div>
 
