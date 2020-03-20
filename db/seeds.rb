@@ -8,6 +8,7 @@ require 'open-uri'
 #   Character.create(name: 'Luke', movie: movies.first)
 Garden.destroy_all
 User.destroy_all
+Booking.destroy_all
 
 # CREATING USERS
 
@@ -79,3 +80,10 @@ garden10 = Garden.create(title:"Garden with swiming pool ", description:"Beautif
 
 file10 = URI.open("https://www.graduatelandscapes.co.uk/bmFiles/size3/Surrey-garden-designer-.swimming-pool-decking-area-jpg.jpg")
 garden10.photos.attach(io: file10, filename: 'img10.jpg', content_type: 'image/jpg')
+
+
+booking1 = Booking.create(user: user2, garden: Garden.first, start_time: 14, end_time: 20, date: Date.today)
+booking1 = Booking.create(user: user3, garden: Garden.first, start_time: 14, end_time: 20, date: Date.today)
+booking1 = Booking.create(user: user3, garden: Garden.first, start_time: 14, end_time: 20, date: Date.today)
+booking1 = Booking.create(user: user4, garden: Garden.first, start_time: 14, end_time: 20, date: Date.today)
+booking1 = Booking.create(user: user4, garden: Garden.first, start_time: 14, end_time: 20, date: Date.today)
