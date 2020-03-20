@@ -18,6 +18,7 @@ class GardensController < ApplicationController
 
   def show
     @garden = Garden.find(params[:id])
+    @review = Review.new
     @booking = Booking.new
 
     @markers = [{
