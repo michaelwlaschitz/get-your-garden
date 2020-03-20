@@ -22,7 +22,7 @@
         <% end %>
 
     </div>
-    <h2>We found <span class="fat-green"> <%= @gardens.count(:all) %> </span> gardens</h2>
+    <h2 class="ml-3">We found <span class="fat-green"> <%= @gardens.count(:all) %> </span> gardens</h2>
   <% @gardens.each do |garden| %>
     <div class = "row mx-3 py-4 border-top">
       <div class = "garden-card">
