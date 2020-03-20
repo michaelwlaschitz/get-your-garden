@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = current_user.host_bookings.order(created_at: :asc)
+    @booking_requests = current_user.bookings
   end
 
   def create
