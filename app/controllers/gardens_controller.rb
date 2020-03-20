@@ -2,10 +2,26 @@ class GardensController < ApplicationController
      skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+
+    @gardens = Garden.all
     if params[:q].present?
-      @gardens = Garden.near(params[:q], 20)
-    else
-      @gardens = Garden.all
+      @gardens = @gardens.near(params[:q], 20)
+    end
+
+    if params[:pool].present?
+      @gardens = @gardens.where(pool: true)
+    end
+
+    if params[:barbecue].present?
+      @gardens = @gardens.where(barbecue: true)
+    end
+
+    if params[:green_area].present?
+      @gardens = @gardens.where(green_area: true)
+    end
+
+    if params[:capacity].present?
+      @gardens = @gardens.where("capacity >= ?", params[:capacity])
     end
 
     @markers = @gardens.map do |garden|
