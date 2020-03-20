@@ -105,6 +105,7 @@
    <% if booking.status == "accepted"%>
 
    <p class="fat-green-no-effect"> Booking is confirmed! </p>
+   <p><%= link_to "Create a Review", new_review_path, class: "btn btn-success" %> </p>
 
   <% elsif booking.status == "rejected"%>
     <p class="fat-orange"> Booking is rejected! </p>
