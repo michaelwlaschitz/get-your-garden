@@ -5,7 +5,7 @@
     <br>
     <p class="no-spacing lighter"><strong>Where do you want to chill?</strong></p>
       <%= form_with url: '/gardens', method: :get, local: true do |f| %>
-      <%= f.text_field :q, id: :q, class: "form-home", placeholder: "Location" %>
+      <%= f.text_field :q, id: :q, class: "form-home", placeholder: "Sidney" %>
       <%= f.submit "Book a Garden", class: 'btn btn-success btn-search-form' %>
     <% end %>
   </div>
